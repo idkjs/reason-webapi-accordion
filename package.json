@@ -13,7 +13,7 @@
     "deploy": "gh-pages -d public"
   },
   "keywords": [
-    "BuckleScript"
+    "bs-webapi","BuckleScript","reason","reasonml"
   ],
   "author": "Alain Armand",
   "license": "MIT",
