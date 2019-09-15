@@ -1,18 +1,3 @@
-# Basic Reason Template
+# Using [`bs-web-api`](https://github.com/reasonml-community/bs-webapi-incubator)
 
-Hello! This project allows you to quickly get started with Reason and BuckleScript. If you wanted a more sophisticated version, try the `react` template (`bsb -theme react -init .`).
-
-# Build
-```
-npm run build
-```
-
-# Build + Watch
-
-```
-npm run watch
-```
-
-
-# Editor
-If you use `vscode`, Press `Windows + Shift + B` it will build automatically
+## see <https://medium.com/@sscaff1/getting-started-with-reason-and-bucklescript-489d0e5abe7>
