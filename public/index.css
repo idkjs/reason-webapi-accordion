@@ -1,0 +1,169 @@
+body {
+  margin: 100px;
+}
+
+.content {
+  grid-area: content;
+  position: relative;
+}
+
+.header {
+  grid-area: header;
+}
+
+
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 600px;
+  grid-template-areas:
+    "header"
+    "content ";
+  background-color: #fff;
+  color: #444;
+}
+
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 50px;
+  font-size: 150%;
+}
+
+.header {
+  background-color: #999;
+}
+
+.analogClock {
+  height: 300px;
+  fill: none;
+  stroke: #000;
+  stroke-width: 1;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+}
+
+.analogClockFace {
+  fill: white;
+}
+
+.marks {
+  transform: translate(20px, 20px);
+  stroke-width: 0.2;
+}
+
+.seconds,
+.minute,
+.hour {
+  transform: translate(20px, 20px) rotate(0deg);
+}
+
+.seconds {
+  transform: translate(20px, 20px) rotate(calc(var(--current-seconds) * 6deg));
+  stroke-width: 0.3;
+  stroke: #d00505;
+}
+
+.minute {
+  transform: translate(20px, 20px) rotate(calc(var(--current-minutes) * 6deg));
+  stroke-width: 0.6;
+  animation-delay: calc(var(--current-seconds) * -1 * 1s);
+}
+
+.hour {
+  transform: translate(20px, 20px) rotate(calc(var(--current-hours) * 30deg));
+  animation: rotateHourHand calc(12 * 60 * 60s) linear infinite;
+  stroke-width: 1;
+  animation-delay: calc(calc(var(--current-minutes) * -60 * 1s) + calc(var(--current-seconds) * -1 * 1s));
+}
+
+.pin {
+  fill: white;
+  stroke: #d00505;
+  stroke-width: 0.2;
+}
+
+@keyframes rotateSecondHand {
+  from {
+    transform: translate(20px, 20px) rotate(calc(var(--current-seconds) * 6deg));
+  }
+
+  to {
+    transform: translate(20px, 20px) rotate(calc(var(--current-seconds) * 6deg + 360deg));
+  }
+}
+
+@keyframes rotateMinuteHand {
+  from {
+    transform: translate(20px, 20px) rotate(calc(var(--current-minutes) * 6deg));
+  }
+
+  to {
+    transform: translate(20px, 20px) rotate(calc(var(--current-minutes) * 6deg + 360deg));
+  }
+}
+
+@keyframes rotateHourHand {
+  from {
+    transform: translate(20px, 20px) rotate(calc(var(--current-hours) * 30deg));
+  }
+
+  to {
+    transform: translate(20px, 20px) rotate(calc(var(--current-hours) * 30deg + 360deg));
+  }
+}
+
+/* marks */
+.marks>line:nth-child(1) {
+  transform: rotate(30deg);
+}
+
+.marks>line:nth-child(2) {
+  transform: rotate(calc(2 * 30deg));
+}
+
+.marks>line:nth-child(3) {
+  transform: rotate(calc(3 * 30deg));
+  stroke-width: 0.5;
+}
+
+.marks>line:nth-child(4) {
+  transform: rotate(calc(4 * 30deg));
+}
+
+.marks>line:nth-child(5) {
+  transform: rotate(calc(5 * 30deg));
+}
+
+.marks>line:nth-child(6) {
+  transform: rotate(calc(6 * 30deg));
+  stroke-width: 0.5;
+}
+
+.marks>line:nth-child(7) {
+  transform: rotate(calc(7 * 30deg));
+}
+
+.marks>line:nth-child(8) {
+  transform: rotate(calc(8 * 30deg));
+}
+
+.marks>line:nth-child(9) {
+  transform: rotate(calc(9 * 30deg));
+  stroke-width: 0.5;
+}
+
+.marks>line:nth-child(10) {
+  transform: rotate(calc(10 * 30deg));
+}
+
+.marks>line:nth-child(11) {
+  transform: rotate(calc(11 * 30deg));
+}
+
+.marks>line:nth-child(12) {
+  transform: rotate(calc(12 * 30deg));
+  stroke-width: 0.5;
+}
