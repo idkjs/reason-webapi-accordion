@@ -1,6 +1,6 @@
 
 {
-  "name": "reason-use-clock-hook-example",
+  "name": "reason-webapi-accordion",
   "sources": {
     "dir" : "src",
     "subdirs" : true
@@ -13,6 +13,5 @@
   "namespace": true,
   "bs-dependencies": [
     "bs-webapi"
-  ],
-  "refmt": 3
+  ]
 }

@@ -6,6 +6,8 @@
     "start": "npm-run-all --parallel start:*",
     "start:bsb": "bsb -clean-world -make-world -w",
     "start:webpack": "webpack-dev-server --port 3000",
+    "clean": "bsb -clean-world",
+    "watch": "BS_WATCH_CLEAR=true bsb -make-world -w",
     "build": "npm-run-all build:*",
     "build:webpack": "NODE_ENV=production webpack",
     "format": "refmt src/*.re",
@@ -13,12 +15,12 @@
     "deploy": "gh-pages -d public"
   },
   "keywords": [
-    "bs-webapi","BuckleScript","reason","reasonml"
+    "bs-webapi","ReScript","Reason","Reasonml"
   ],
   "author": "Alain Armand",
   "license": "MIT",
   "dependencies": {
-    "bs-webapi": "0.15.4"
+    "bs-webapi": "0.19.1"
   },
   "devDependencies": {
     "gh-pages": "^2.1.1",
@@ -27,6 +29,6 @@
     "webpack": "^4.0.1",
     "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.8",
-    "bs-platform": "^5.0.6"
+    "bs-platform": "^9.0.2"
   }
 }
