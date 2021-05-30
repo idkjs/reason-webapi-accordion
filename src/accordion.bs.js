@@ -2,7 +2,6 @@
 'use strict';
 
 var $$Array = require("bs-platform/lib/js/array.js");
-var Curry = require("bs-platform/lib/js/curry.js");
 var Caml_option = require("bs-platform/lib/js/caml_option.js");
 
 function unwrapElement(v) {
@@ -12,31 +11,6 @@ function unwrapElement(v) {
   throw {
         RE_EXN_ID: "Invalid_argument",
         _1: "Passed none to unwrap",
-        Error: new Error()
-      };
-}
-
-function map(f, v) {
-  if (v !== undefined) {
-    return Caml_option.some(Curry._1(f, Caml_option.valFromOption(v)));
-  }
-  
-}
-
-function andThen(f, v) {
-  if (v !== undefined) {
-    return Curry._1(f, Caml_option.valFromOption(v));
-  }
-  
-}
-
-function unwrapUnsafely(v) {
-  if (v !== undefined) {
-    return Caml_option.valFromOption(v);
-  }
-  throw {
-        RE_EXN_ID: "Invalid_argument",
-        _1: "Passed `None` to unwrapUnsafely",
         Error: new Error()
       };
 }
@@ -117,9 +91,6 @@ function composeItem(node) {
 var accordionElements = $$Array.map(composeItem, Array.prototype.slice.call(sections));
 
 exports.unwrapElement = unwrapElement;
-exports.map = map;
-exports.andThen = andThen;
-exports.unwrapUnsafely = unwrapUnsafely;
 exports.getClassList = getClassList;
 exports.toggleClasses = toggleClasses;
 exports.toggle = toggle;
