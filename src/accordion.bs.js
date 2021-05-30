@@ -38,7 +38,7 @@ function toggle(toggleAction) {
   return toggleClasses("collapsed", "expanded", item$1.classList);
 }
 
-var accordion = unwrapElement(Caml_option.nullable_to_opt(document.querySelector(".accordion")));
+var accordion = unwrapElement(Caml_option.nullable_to_opt(document.getElementById("accordion")));
 
 var sections = accordion.querySelectorAll(".section");
 
@@ -52,18 +52,17 @@ function getHeight(element) {
 
 function handleHeaderClick(e, headerHeight, contentHeight) {
   var element = e.target;
-  var section = element.closest(".section");
-  var section$1 = (section == null) ? undefined : Caml_option.some(section);
-  if (unwrapElement(section$1).classList.contains("collapsed")) {
+  var sectionContains = element.contains(element);
+  if (sectionContains) {
     return toggle({
                 TAG: /* Expand */0,
-                _0: unwrapElement(section$1),
+                _0: element,
                 _1: String(headerHeight + contentHeight | 0)
               });
   } else {
     return toggle({
                 TAG: /* Collapse */1,
-                _0: unwrapElement(section$1),
+                _0: element,
                 _1: String(headerHeight)
               });
   }

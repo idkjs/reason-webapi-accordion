@@ -39,7 +39,7 @@ let toggle = toggleAction =>
   };
 
 let accordion =
-  document |> Document.querySelector(".accordion") |> unwrapElement;
+  document |> Document.getElementById("accordion") |> unwrapElement;
 
 let sections = accordion |> Element.querySelectorAll(".section");
 
@@ -50,18 +50,19 @@ let getHeight = element => element |> Element.clientHeight;
 
 let handleHeaderClick = (e, headerHeight, contentHeight) => {
   let element = MouseEvent.target(e) |> asDomElement;
-  let section = element |> Element.closest(".section");
-  section
-  |> unwrapElement
-  |> getClassList
-  |> DomTokenList.contains("collapsed")
+  let sectionContains = element |> Element.contains(element);
+  let section = element;
+  //  let target = MouseEvent.relatedTarget(e)|> unwrapElement;
+  sectionContains
+  // |> unwrapElement
+
     ? toggle(
         Expand(
-          unwrapElement(section),
+          section,
           string_of_int(headerHeight + contentHeight),
         ),
       )
-    : toggle(Collapse(unwrapElement(section), string_of_int(headerHeight)));
+    : toggle(Collapse((section), string_of_int(headerHeight)));
 };
 
 let composeItem = node => {
